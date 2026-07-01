@@ -1,0 +1,67 @@
+# PHP specific
+*.php.swp
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Dependencies
+vendor/
+composer.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node (if applicable)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build artifacts
+dist/
+build/
+
+# Cache
+.cache/
+cache/
+
+# Uploads (keep structure but ignore user files)
+uploads/**/*
+!uploads/.gitkeep
+!uploads/custom/.gitkeep
+
+# Custom uploads
+uploads/custom/**/*
+!uploads/custom/.gitkeep
+
+# Configuration files with sensitive data
+config/.env*
+!config/.env-example
+
+# GraphQL/Debug files
+graphify-out/
+*.sqlite
