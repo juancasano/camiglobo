@@ -1,14 +1,16 @@
-# Camiglobo Barcelona — E-commerce de Camisetas Personalizadas
+# Camiglobo Barcelona — Reestructuración MVC (demo de arquitectura)
 
-> Proyecto web real en producción desarrollado íntegramente desde cero en PHP.
+> ⚠️ **Este repo no es el deploy en producción.**  
+> Es una **reestructura / demo de arquitectura**: el mismo e-commerce organizado en carpetas tipo framework (MVC) para mostrar cómo estructuraría el proyecto.  
+> **No está pensado para clonar y arrancar** como la tienda en vivo.
 
-**[🌐 Ver en producción → camiglobo.com](https://camiglobo.com)**
+**[🌐 Tienda en producción → camiglobo.com](https://camiglobo.com)** · **[📦 Código en producción → repo proyecto](https://github.com/juancasano/proyecto)**
 
 ---
 
 ## 📁 Estructura del Proyecto
 
-Este repositorio organiza el código fuente del e-commerce Camiglobo siguiendo convenciones modernas de arquitectura, similar a frameworks como Angular:
+Esta reorganización sigue convenciones modernas de arquitectura, similares a frameworks como Angular:
 
 ```
 camiglobo/
@@ -61,18 +63,18 @@ camiglobo/
 
 ## 💡 Objetivo del Repositorio
 
-Este proyecto demuestra la capacidad de **organizar y estructurar código PHP a escala profesional**, aplicando principios modernos de arquitectura que trascienden el desarrollo tradicional en PHP plano. Después de completar el proyecto Angular ([ver repositorio](https://github.com/juancasano)), se añadió esta reorganización para mostrar que se domina tanto la estructura Frontend (Angular) como Backend (PHP).
+Demostrar la capacidad de **organizar y estructurar código PHP** con capas claras (`public/`, `controllers/`, `models/`, `helpers/`, etc.), más allá del PHP “plano” o espagueti. La tienda real se desarrolló primero; esta reorganización sirve como **portfolio de arquitectura**, no como sustituto del código desplegado.
 
 ---
 
 ## 📝 Notas
 
-- El repositorio contiene la **estructura organizada** del proyecto en producción
-- Los archivos están clasificados por capas funcionales para facilitar mantenimiento y escalabilidad
-- Para más detalles técnicos, consulta la [documentación completa](https://juancasano.github.io/documentacion-camiglobo.html)
+- **Producción** = [camiglobo.com](https://camiglobo.com) · código desplegado en [`proyecto`](https://github.com/juancasano/proyecto)
+- **Este repo** = misma base de archivos **reordenados** en estructura MVC / tipo framework (demo)
+- Para más detalles técnicos: [documentación](https://juancasano.github.io/documentacion-camiglobo.html)
 
 ---
 
 **Desarrollado por:** Juan Casano  
-**Estado:** ✅ En producción  
-**Última actualización:** 2026-07-01
+**Estado:** 📐 Demo de arquitectura (no es el deploy)  
+**Última actualización:** 2026-10-14
