@@ -1,106 +1,55 @@
-# Arquitectura del Proyecto
+# Arquitectura — Camiglobo (demo estilo Laravel)
 
-## Visión General
+## Aviso
 
-El proyecto Camiglobo está organizado siguiendo una arquitectura moderna similar a la de frameworks frontend, separando responsabilidades en capas bien definidas.
+Este repositorio es una **demo de arquitectura**. No es el código desplegado en Hostinger.  
+Producción: [camiglobo.com](https://camiglobo.com) · código: [juancasano/proyecto](https://github.com/juancasano/proyecto).
 
-## Estructura de Carpetas
+## Visión
 
-### `/public` — Archivos Públicos (Assets)
-Archivos accesibles directamente desde el navegador (solo lectura en producción).
+Separar responsabilidades como en un framework PHP moderno:
 
-- `css/` — Hojas de estilos CSS
-- `js/` — Scripts JavaScript (ES6+, Fabric.js, etc.)
-- `images/` — Imágenes, favicons y recursos gráficos
+| Capa | Ruta | Rol |
+|---|---|---|
+| Entrypoint | `public/` | Único punto HTTP documentado |
+| Bootstrap | `bootstrap/app.php` | Carga de la app (stub) |
+| Rutas | `routes/web.php` | Mapa URL → controlador |
+| Controllers | `app/Http/Controllers/{Dominio}` | Orquestación por dominio |
+| Models | `app/Models/` | Acceso a datos (stubs) |
+| Services | `app/Services/` | Reglas de negocio / email / precios |
+| Views | `resources/views/` | Layouts y plantillas |
+| Config | `config/` | Ajustes y `.env-example` |
+| Storage | `storage/app/uploads/` | Ficheros de usuario |
 
-### `/src` — Código Fuente (Lógica de Negocio)
-Núcleo de la aplicación, no debe ser accesible directamente desde HTTP.
+## Dominios de controladores
 
-#### `controllers/` (40+ archivos)
-Archivos PHP que manejan la lógica de vistas y enrutamiento:
-- **Públicas:** `index.php`, `productos.php`, `producto.php`, `carrito.php`, `checkout.php`, etc.
-- **Autenticación:** `login.php`, `registro.php`, `logout.php`, `recuperar.php`
-- **Usuario:** `perfil.php`, `mi_pedido_detalle.php`, `ver_detalles.php`
-- **Procesamiento:** `procesar_login.php`, `procesar_pedido.php`, `procesar_pago.php`, `procesar_perfil.php`
-- **Admin:** `admin_productos.php`, `admin_pedidos.php`, `admin_pagos.php`, `admin_clientes.php`
-- **APIs:** `obtener_productos.php`, `obtener_recursos.php`, `carrito_accion.php`
+- **Shop** — catálogo, carrito, checkout, personalizador, legales, sitemaps
+- **Auth** — login, registro, recuperación, Google OAuth
+- **Account** — perfil y pedidos del cliente
+- **Admin** — productos, pedidos, pagos, biblioteca, newsletter
+- **Api** — endpoints AJAX, pago, uploads, recursos
 
-#### `models/` (Vacío - Expandible)
-Modelos de datos (clases para productos, usuarios, pedidos, etc.). Actualmente, la lógica está en los controllers, pero esta carpeta está lista para refactorización.
+## Flujo de una petición (conceptual)
 
-#### `views/` (Vacío - Expandible)
-Templates HTML reutilizables. Actualmente, el HTML está incrustado en los controllers. Esta carpeta está lista para separación de concerns.
-
-#### `helpers/` (Funciones Auxiliares)
-- `config.php` — Configuración principal y constantes
-- `colors.php` — Paleta de colores de la marca
-- `header.php` — Template del header global
-- `footer.php` — Template del footer global
-- `pricing.php` — Lógica de precios y promociones
-- `PHPMailer/` — Librería para envío de correos
-
-### `/config` — Configuración del Proyecto
-Archivos de configuración centralizada (no versionados en Git).
-
-- `config.php` — Conexión a BD, variables globales
-- `.env` — Variables de entorno (sensibles, ignorado por Git)
-- `.env-example` — Ejemplo de variables requeridas
-
-### `/admin` — Panel de Administración
-Funcionalidades administrativas:
-- `cambiar_estado.php` — Cambiar estado de pedidos
-- `ver_pedido.php` — Detalle de pedido en admin
-
-### `/uploads` — Directorio de Subidas
-Área para archivos subidos por usuarios:
-- `custom/` — Diseños personalizados guardados
-
-### `/docs` — Documentación (Expandible)
-Documentación técnica del proyecto.
-
-## Patrones y Convenciones
-
-### Nomenclatura de Archivos
-- **Archivos públicos (controllers):** `nombreAccion.php` (ej: `productos.php`, `procesar_pedido.php`)
-- **Archivos de procesamiento:** `procesar_*.php` (ej: `procesar_login.php`)
-- **Archivos de administración:** `admin_*.php` (ej: `admin_productos.php`)
-- **APIs:** `obtener_*.php` (ej: `obtener_productos.php`)
-
-### Seguridad
-- **Configuración sensible:** en `config/` y `.env` (no versionado)
-- **PHPMailer:** en `src/helpers/` para centralizar email
-- **Validación:** en cada controller o en helpers centralizados
-
-### Escalabilidad Futura
-La estructura permite evolucionar hacia:
-1. **Separación MVC más estricta:** mover lógica a `models/`
-2. **Templates separados:** usar `views/` para plantillas
-3. **Namespaces:** organizar clases por namespace
-4. **Autoload Composer:** implementar PSR-4
-
-## Flujo Típico de Solicitud
-
-```
-Usuario →  index.php (enrutador)  →  controllers/pagina.php  →  src/helpers/*  →  HTML Response
-                                         ↓
-                                     procesar_*.php
-                                         ↓
-                                    Base de Datos
-                                         ↓
-                                    Email (PHPMailer)
+```mermaid
+flowchart LR
+  Browser --> PublicIndex[public/index.php]
+  PublicIndex --> Bootstrap[bootstrap/app.php]
+  Bootstrap --> Router[routes/web.php]
+  Router --> Controller[app/Http/Controllers]
+  Controller --> Model[app/Models]
+  Controller --> Service[app/Services]
+  Controller --> View[resources/views]
 ```
 
-## Tecnologías por Carpeta
+## Qué es stub y qué es código real
 
-| Carpeta | Tecnología |
-|---------|-----------|
-| `/public/css` | CSS3, Preprocesadores (opcional) |
-| `/public/js` | JavaScript ES6+, Fabric.js |
-| `/src/controllers` | PHP 7.4+ |
-| `/src/helpers` | PHP, PHPMailer |
-| `/config` | PHP, Variables de entorno |
-| `/admin` | PHP |
+- **Código real movido:** páginas PHP del e-commerce agrupadas en `app/Http/Controllers/*`, layouts en `resources/views/layouts/`, config y PHPMailer.
+- **Stubs de framework:** `Models/*`, `Services/*Service.php`, `public/index.php`, `bootstrap/app.php`, `routes/web.php`.
+- **No incluido:** autoload Composer completo, migraciones con datos, ni un kernel HTTP ejecutable.
 
----
+## Seguridad
 
-**Última actualización:** 2026-07-01
+- No versionar `.env` real (ver `.gitignore`).
+- Uploads de usuario bajo `storage/` (ignorados salvo `.gitkeep`).
+- Credenciales y dumps sensibles fuera del repo.

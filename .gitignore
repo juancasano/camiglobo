@@ -49,14 +49,16 @@ build/
 .cache/
 cache/
 
-# Uploads (keep structure but ignore user files)
+# Uploads legacy path
 uploads/**/*
 !uploads/.gitkeep
 !uploads/custom/.gitkeep
 
-# Custom uploads
-uploads/custom/**/*
-!uploads/custom/.gitkeep
+# Storage uploads (Laravel-like)
+storage/app/uploads/**/*
+!storage/app/uploads/.gitkeep
+!storage/app/uploads/custom/.gitkeep
+!storage/app/uploads/custom/**/.gitkeep
 
 # Configuration files with sensitive data
 config/.env*
