@@ -4,7 +4,7 @@
 
 Demo de arquitectura del e-commerce **Camiglobo Barcelona**, organizada con convenciones tipo Laravel.
 
-**Este repo no es un clone funcional del deploy.** La tienda real está en [camiglobo.com](https://camiglobo.com) y el código desplegado en [juancasano/proyecto](https://github.com/juancasano/proyecto).
+**Este repo no es un clone funcional del deploy.** La tienda real está en [camiglobo.com](https://camiglobo.com) (Hostinger / `public_html`).
 
 ---
 
@@ -32,4 +32,4 @@ cd camiglobo
 Puedes leer el árbol y los stubs sin necesidad de BD ni Composer.  
 No se garantiza que `php -S` sirva la tienda completa desde este repo.
 
-Para desarrollo real del e-commerce, usa el repo `proyecto` y el entorno de Hostinger.
+Para el código real del e-commerce, trabaja sobre el `public_html` del hosting (backup privado en GitHub: `camiglobo-produccion`).

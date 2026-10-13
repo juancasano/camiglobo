@@ -3,7 +3,7 @@
 ## Aviso
 
 Este repositorio es una **demo de arquitectura**. No es el código desplegado en Hostinger.  
-Producción: [camiglobo.com](https://camiglobo.com) · código: [juancasano/proyecto](https://github.com/juancasano/proyecto).
+Producción: [camiglobo.com](https://camiglobo.com) (document root `public_html` en el hosting).
 
 ## Visión
 

@@ -4,7 +4,7 @@
 > Es una **reestructura / demo de arquitectura**: el e-commerce organizado como un proyecto PHP moderno (convenciones tipo Laravel) para mostrar capas, dominios y rutas.  
 > **No está pensado para clonar y arrancar** como la tienda en vivo.
 
-**[Tienda en producción → camiglobo.com](https://camiglobo.com)** · **[Código desplegado → repo proyecto](https://github.com/juancasano/proyecto)**
+**[Tienda en producción → camiglobo.com](https://camiglobo.com)**
 
 ---
 
@@ -37,7 +37,7 @@ Flujo conceptual:
 Request → public/index.php → bootstrap → routes/web.php → Controller → View / JSON
 ```
 
-Los controladores están **agrupados por dominio** (Shop, Auth, Account, Admin, Api). Los Models y Services son **stubs** que muestran cómo encapsularía la lógica; en producción gran parte sigue en páginas PHP del repo `proyecto`.
+Los controladores están **agrupados por dominio** (Shop, Auth, Account, Admin, Api). Los Models y Services son **stubs** que muestran cómo encapsularía la lógica; el deploy real en Hostinger es PHP clásico en el document root (`public_html`).
 
 ---
 
@@ -51,7 +51,7 @@ Los controladores están **agrupados por dominio** (Shop, Auth, Account, Admin, 
 | Pagos | PayPal API |
 | SEO | Sitemap XML, Search Console, Analytics |
 | Seguridad | HTTPS/SSL, variables de entorno, capas anti-abuso |
-| Deploy real | Hostinger (`proyecto`) |
+| Deploy real | Hostinger (`public_html`) |
 | Control de versiones | Git / GitHub |
 
 ---
@@ -84,8 +84,8 @@ La tienda real se construyó primero; esta carpeta es **portfolio de arquitectur
 
 ## Notas
 
-- **Producción** = [camiglobo.com](https://camiglobo.com) · código en [`proyecto`](https://github.com/juancasano/proyecto)
-- **Este repo** = mismos archivos de negocio **reordenados** + stubs de framework
+- **Producción** = [camiglobo.com](https://camiglobo.com) (Hostinger / `public_html`)
+- **Este repo** = misma base de negocio **reordenada** + stubs de framework (portfolio)
 - Más detalle: [ARCHITECTURE.md](ARCHITECTURE.md) · [documentación web](https://juancasano.github.io/documentacion-camiglobo.html)
 
 ---
