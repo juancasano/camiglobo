@@ -78,14 +78,14 @@ Demostrar organización PHP profesional (estilo Laravel):
 - `routes/web.php` como mapa legible de la app
 - Views/layouts fuera de la lógica
 
-La tienda real se construyó primero; esta carpeta es **portfolio de arquitectura**, no el código desplegado.
+La tienda real se construyó primero; esta carpeta es **portafolio de arquitectura**, no el código desplegado.
 
 ---
 
 ## Notas
 
 - **Producción** = [camiglobo.com](https://camiglobo.com) (Hostinger / `public_html`)
-- **Este repo** = misma base de negocio **reordenada** + stubs de framework (portfolio)
+- **Este repo** = misma base de negocio **reordenada** + stubs de framework (portafolio)
 - Más detalle: [ARCHITECTURE.md](ARCHITECTURE.md) · [documentación web](https://juancasano.github.io/documentacion-camiglobo.html)
 
 ---

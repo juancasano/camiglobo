@@ -4,7 +4,7 @@
  *
  * En un framework real aquí se cargaría el contenedor de servicios,
  * la configuración y el kernel HTTP. Este repo es una reorganización
- * para portfolio: no arranca la tienda en producción.
+ * para portafolio: no arranca la tienda en producción.
  *
  * @see ../routes/web.php
  * @see ../public/index.php
