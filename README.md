@@ -84,9 +84,9 @@ La tienda real se construyó primero; esta carpeta es **portafolio de arquitectu
 
 ## Notas
 
-- **Producción** = [camiglobo.com](https://camiglobo.com) (Hostinger / `public_html`)
-- **Este repo** = misma base de negocio **reordenada** + stubs de framework (portafolio)
-- Más detalle: [ARCHITECTURE.md](ARCHITECTURE.md) · [documentación web](https://juancasano.github.io/documentacion-camiglobo.html)
+- **Este repo (`Documents\GitHub\camiglobo`)** = misma base de negocio **reordenada** + stubs (portafolio / demo). **No es el deploy.**
+- **Producción** = [camiglobo.com](https://camiglobo.com) → código en `Documents\GitHub\public_html` (Hostinger, privado)
+- Más detalle: [ARCHITECTURE.md](ARCHITECTURE.md) · [documentación web](https://juancasano.github.io/documentacion-camiglobo.html) · [AGENTS.md](./AGENTS.md)
 
 ---
 
